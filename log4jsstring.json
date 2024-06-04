@@ -1,0 +1,37 @@
+{
+  "$schema": "https://lnav.org/schemas/format-v1.schema.json",
+  "log4jsstring": {
+    "description": "Format file generated from regex101 entry -- https://regex101.com/r/ApKz4O/1",
+    "regex": {
+      "pcre2": {
+        "pattern": "^\\[(?<timestamp>\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}\\.\\d{3})\\] \\[(?<level>\\w+)\\] (?<category>[^\\s]+)\\s?-(?<body>.*)"
+      }
+    },
+    "timestamp-format": [
+      "%Y-%m-%dT%H:%M:%S.%L"
+    ],
+    "timestamp-field": "timestamp",
+    "level-field": "level",
+    "value": {
+      "category": {
+        "kind": "string",
+        "identifier": true
+      },
+      "level": {
+        "kind": "string",
+        "identifier": true
+      },
+      "timestamp": {
+        "kind": "string"
+      }
+    },
+    "sample": [
+      {
+        "line": "[2024-06-03T19:58:37.448] [INFO] db-setup.js - /Users/me/projects/sequelize IS SYNC!"
+      },
+      {
+        "line": "[2024-06-03T23:29:44.352] [INFO] common-routes.ts - main setup"
+      }
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://lnav.org/schemas/format-v1.schema.json",
+  "expressError": {
+    "description": "express server error",
+    "regex": {
+      "pcre2": {
+        "pattern": "^(?<timestamp>[A-z]{3},\\s\\d{2}\\s[A-z]{3}\\s\\d{4}\\s\\d{2}:\\d{2}:\\d{2})\\s(?<zone>GMT)\\s(?<body>.*)"
+      }
+    },
+    "timestamp-format": [
+      "%a, %d %b %Y %H:%M:%S"
+    ],
+    "timestamp-field": "timestamp",
+    "level-field": "zone",
+    "highlights": {
+      "default": {
+        "color": "grey",
+        "pattern": ".*",
+        "background-color": "DarkRed",
+        "underline": true
+
+      }
+    },
+    "value": {
+      "zone": {
+        "kind": "string"
+      },
+      "timezone": {
+        "kind": "string",
+        "identifier": true
+      },
+      "body": {
+        "kind": "string"
+      }
+    },
+    "sample": [
+      {
+        "line": "Mon, 03 Jun 2024 10:57:31 GMT express-session deprecated undefined resave option; provide resave option at server/app.js:55:39"
+      },
+      {
+        "line": "Mon, 03 Jun 2024 10:57:31 GMT express-session deprecated undefined saveUninitialized option; provide saveUninitialized option at dist/server/app.js:55:39\\n main commonRoute err: ReferenceError: getInfo is not defined"
+      }
+    ]
+  }
+}
