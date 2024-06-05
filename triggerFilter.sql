@@ -10,7 +10,6 @@ CREATE TRIGGER IF NOT EXISTS add_format_specific_filters
       SELECT 1 FROM lnav_view_filters WHERE pattern IN 
         ('startTime', 
         'db-setup',
-        'common-routes',
         'db-access-routes',
         'DELETE FROM `SESSIONS`'
         )
@@ -19,7 +18,6 @@ BEGIN
 INSERT INTO lnav_view_filters (view_name, enabled, type, pattern) VALUES
     ('log', 1, 'OUT', 'startTime'),
     ('log', 1, 'OUT', 'db-setup'),
-    ('log', 1, 'OUT', 'common-routes'),
     ('log', 1, 'OUT', 'db-access-routes'),
     ('log', 1, 'OUT', 'DELETE FROM `SESSIONS`');
 END;
